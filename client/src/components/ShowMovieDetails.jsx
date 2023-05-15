@@ -6,16 +6,16 @@ import axios from "axios";
 
 // eslint-disable-next-line no-unused-vars
 function ShowBookDetails(props) {
-  const [book, setBook] = useState({});
+  const [movie, setMovie] = useState({});
 
   const { id } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/books/${id}`)
+      .get(`https://bookrepo.onrender.com/api/books/${id}`)
       .then((res) => {
-        setBook(res.data);
+        setMovie(res.data);
       })
       // eslint-disable-next-line no-unused-vars
       .catch((err) => {
@@ -25,7 +25,7 @@ function ShowBookDetails(props) {
 
   const onDeleteClick = (id) => {
     axios
-      .delete(`http://localhost:5000/api/books/${id}`)
+      .delete(`https://bookrepo.onrender.com/api/books/${id}`)
       // eslint-disable-next-line no-unused-vars
       .then((res) => {
         navigate("/");
@@ -36,39 +36,39 @@ function ShowBookDetails(props) {
       });
   };
 
-  const BookItem = (
+  const MovieItem = (
     <div>
       <table className="table table-hover table-dark">
         <tbody>
           <tr>
             <th scope="row">1</th>
             <td>Title</td>
-            <td>{book.title}</td>
+            <td>{movie.title}</td>
           </tr>
           <tr>
             <th scope="row">2</th>
             <td>Director</td>
-            <td>{book.director}</td>
+            <td>{movie.director}</td>
           </tr>
           <tr>
             <th scope="row">3</th>
             <td>ISBN</td>
-            <td>{book.isbn}</td>
+            <td>{movie.isbn}</td>
           </tr>
           <tr>
             <th scope="row">4</th>
             <td>Publisher</td>
-            <td>{book.publisher}</td>
+            <td>{movie.publisher}</td>
           </tr>
           <tr>
             <th scope="row">5</th>
             <td>Published Date</td>
-            <td>{book.published_date}</td>
+            <td>{movie.published_date}</td>
           </tr>
           <tr>
             <th scope="row">6</th>
             <td>Description</td>
-            <td>{book.description}</td>
+            <td>{movie.description}</td>
           </tr>
         </tbody>
       </table>
@@ -92,7 +92,7 @@ function ShowBookDetails(props) {
             <hr /> <br />
           </div>
           <div className="col-md-10 m-auto border p-4 border-black">
-            {BookItem}
+            {MovieItem}
           </div>
           <div className="flex my-4">
             <div className="col-md-6 m-auto">
@@ -100,7 +100,7 @@ function ShowBookDetails(props) {
                 type="button"
                 className="bg-red-500 text-white px-2 py-1 rounded-md"
                 onClick={() => {
-                  onDeleteClick(book._id);
+                  onDeleteClick(movie._id);
                 }}
               >
                 Delete Movie
@@ -108,7 +108,7 @@ function ShowBookDetails(props) {
             </div>
             <div className="col-md-6 m-auto">
               <Link
-                to={`/edit-movie/${book._id}`}
+                to={`/edit-movie/${movie._id}`}
                 className="bg-green-500 text-white px-2 py-1 rounded-md"
               >
                 Edit Movie

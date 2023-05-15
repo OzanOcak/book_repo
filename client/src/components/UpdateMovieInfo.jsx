@@ -20,7 +20,7 @@ function UpdateMovieInfo(props) {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/books/${id}`)
+      .get(`https://bookrepo.onrender.com/api/books/${id}`)
       .then((res) => {
         setMovie({
           title: res.data.title,
@@ -54,7 +54,7 @@ function UpdateMovieInfo(props) {
     };
 
     axios
-      .put(`http://localhost:5000/api/books/${id}`, data)
+      .put(`https://bookrepo.onrender.com/api/books/${id}`, data)
       // eslint-disable-next-line no-unused-vars
       .then((res) => {
         navigate(`/show-movie/${id}`);

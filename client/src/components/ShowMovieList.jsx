@@ -9,7 +9,7 @@ function ShowMovieList() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/books")
+      .get("https://bookrepo.onrender.com/api/books")
       .then((res) => {
         setMovies(res.data);
       })

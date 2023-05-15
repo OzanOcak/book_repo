@@ -28,7 +28,7 @@ const CreateMovie = (props) => {
     e.preventDefault();
 
     axios
-      .post("http://localhost:5000/api/books", movie)
+      .post("https://bookrepo.onrender.com/api/books", movie)
       // eslint-disable-next-line no-unused-vars
       .then((res) => {
         setMovie({
