@@ -1,0 +1,4 @@
+{
+    "mongoURI":
+      "mongodb+srv://admin:mernsifre@cluster0.p6unset.mongodb.net/todos?retryWrites=true&w=majority"
+}
